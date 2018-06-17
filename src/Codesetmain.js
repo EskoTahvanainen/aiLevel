@@ -16,7 +16,7 @@ export default class CodeSetMain extends React.Component {
       return <Router><div>
           <header>
               <img src="./images/books.gif" />
-              <h1>Otsikko tässä</h1>  
+              <h1>Otsikko TÄSSÄ</h1>  
           </header>
           <nav>
               <Link to="/">CodeSets  </Link>
