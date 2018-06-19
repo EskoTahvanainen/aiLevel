@@ -1,4 +1,5 @@
 //import { Service } from './demo.ajaxhelpers';
+import axios from 'axios';
 
 var books = [
     { id: 1, title: "OdysseiA", author: "Homeros", description: "Long way back", price: 12.30, published: new Date(22, 2, 4) },
@@ -202,15 +203,38 @@ export const bookServiceHttp = new BookServiceHttp();
 export const codesetService = {
 
     getAll(cb) {
-        console.log('css:getAll'); 
-        cb(codesets);
+        console.log('css:getAll');         
+        //cb(codesets);
+
+        const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/getCodeSets/DIFSOL`
+
+        axios.get(url)
+          .then((response) => {
+            cb(response.data)
+            console.log(response)
+          })
+          .catch((error) => {
+            console.log(error) 
+          });
     },
 
     getBook(Id,cb) {
         console.log('css:getBook ' + Id); 
-        var book = codesets.find(b => b.Id == Id);
-        if (!book) cb({ Id: '', Type: 'Ei löydy', Code: '0', Abbrevision: '', Meaning: '' });
-        else cb(book);
+        //var book = codesets.find(b => b.Id == Id);
+        //if (!book) cb({ Id: '', Type: 'Ei löydy', Code: '0', Abbrevision: '', Meaning: '' });
+        //else cb(book);
+
+        const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/get/${Id}`
+
+        axios.get(url)
+          .then((response) => {
+            cb(response.data)
+            console.log(response)
+          })
+          .catch((error) => {
+            cb({ Id: '', Type: 'Ei löydy', Code: '0', Abbrevision: '', Meaning: '' })
+            console.log(error) 
+          });
     },
 
     // 6.6.18 saas nähdä toimiiko tämä ?
