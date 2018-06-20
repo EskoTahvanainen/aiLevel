@@ -258,24 +258,34 @@ export const codesetService = {
     },
 
     // delete
-    deleteBook(Id,cb) {
+    deleteBook(Id, cb) {
         console.log('css:deleteBook ' + Id); 
-        var index = codesets.findIndex(b => b.Id == Id);
-        if (index >= 0) codesets.splice(index, 1);
+        //var index = codesets.findIndex(b => b.Id == Id);
+        //if (index >= 0) codesets.splice(index, 1);
+        //cb();
+
+        const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/delete/${Id}`
+
+        axios.delete(url)
+          .then((response) => {
+            console.log(response)
+          })
+          .catch((error) => {
+            console.log(error) 
+          });
         cb();
     },
 
     // ei toimi vielä!!
     // post
     createBook(book,cb) {
-        book.Id = books.reduce((a, b) => a.id > b.id ? a : b).id + 1;
-        codesets.push(book);
-        console.log('css:createBook ' + book.Id); 
-        cb(book);
+        //book.Id = books.reduce((a, b) => a.id > b.id ? a : b).id + 1;
+        //codesets.push(book);
+        //console.log('css:createBook ' + book.Id); 
+        //cb(book);
 
-        /*
         const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/create`
-        axios.put(url,{book})
+        axios.put(url, book)
           .then((response) => {
             console.log(response)
           })
@@ -284,7 +294,6 @@ export const codesetService = {
           });
         console.log('css:createBook ' + book.Id); 
         cb(book);
-        */
     }
     /*
     getAll(cb) {

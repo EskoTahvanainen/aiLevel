@@ -19,9 +19,9 @@ export class CodeSetDetail extends React.Component {
     }
 
     goBack() {
-        //if (!Number(this.props.match.params.id))
-        //    codesetService.createBook(this.state.book, b => this.props.history.goBack());
-        //else
+        if (!Number(this.props.match.params.id))
+            codesetService.createBook(this.state.book, b => this.props.history.goBack());
+        else
             codesetService.saveBook(this.state.book, b => this.props.history.goBack());
     }
 
