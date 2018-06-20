@@ -238,13 +238,26 @@ export const codesetService = {
     },
 
     // 6.6.18 saas nähdä toimiiko tämä ?
+    // put
     saveBook(book, cb) {
-        console.log('css:saveBook ' + book.Id);
-        var index = codesets.findIndex(b => b.Id == book.Id);
-        codesets[index] = book;
+        //console.log('css:saveBook ' + book.Id);
+        //var index = codesets.findIndex(b => b.Id == book.Id);
+        //codesets[index] = book;
+        //cb();
+
+        const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/update`
+        axios.post(url, {book})
+          .then((response) => {
+            console.log(response)
+          })
+          .catch((error) => {
+            console.log(error) 
+          });
+        console.log('css:saveBook ' + book.Id); 
         cb();
     },
 
+    // delete
     deleteBook(Id,cb) {
         console.log('css:deleteBook ' + Id); 
         var index = codesets.findIndex(b => b.Id == Id);
@@ -253,11 +266,25 @@ export const codesetService = {
     },
 
     // ei toimi vielä!!
+    // post
     createBook(book,cb) {
         book.Id = books.reduce((a, b) => a.id > b.id ? a : b).id + 1;
         codesets.push(book);
         console.log('css:createBook ' + book.Id); 
         cb(book);
+
+        /*
+        const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/create`
+        axios.put(url,{book})
+          .then((response) => {
+            console.log(response)
+          })
+          .catch((error) => {
+            console.log(error) 
+          });
+        console.log('css:createBook ' + book.Id); 
+        cb(book);
+        */
     }
     /*
     getAll(cb) {
