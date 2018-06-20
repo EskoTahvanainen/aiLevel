@@ -27,10 +27,24 @@ export class CodeSetDetail extends React.Component {
 
     render() {
         return <div><h2>BookDetail ({this.props.match.params.id})</h2>
-            Type <input id="Type" onChange={ev => this.valueChanged(ev)} value={this.state.book.Type}/><br />
-            Abbrevision <input id="Abbrevision" onChange={ev => this.valueChanged(ev)} value={this.state.book.Abbrevision} /><br />
-            <input onClick={() => this.goBack()} type="button" value="Back" />
-            </div>
+        <table className="table">
+            <tr>
+                <td>Type</td><td><input id="Type" onChange={ev => this.valueChanged(ev)} value={this.state.book.Type}/></td>
+            </tr>
+            <tr>
+                <td>Abbrevision</td><td><input id="Abbrevision" onChange={ev => this.valueChanged(ev)} value={this.state.book.Abbrevision} /></td>
+            </tr>
+            <tr>
+                <td>Code</td><td><input id="Code" onChange={ev => this.valueChanged(ev)} value={this.state.book.Code} /></td>
+            </tr>
+            <tr>
+                <td>Meaning</td><td><input id="Meaning" onChange={ev => this.valueChanged(ev)} value={this.state.book.Meaning} /></td>
+            </tr>
+            <tr>
+                <td></td><td><input onClick={() => this.goBack()} type="button" value="Back" /></td>
+            </tr>
+        </table>
+        </div>
     }
 }
 

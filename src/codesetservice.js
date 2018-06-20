@@ -246,7 +246,7 @@ export const codesetService = {
         //cb();
 
         const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/update`
-        axios.post(url, {book})
+        axios.post(url, book)
           .then((response) => {
             console.log(response)
           })
