@@ -19,15 +19,22 @@ export class CodeSetDetail extends React.Component {
     }
 
     goBack() {
-        if (!Number(this.props.match.params.id))
+        if (this.props.match.params.id === "00000000-0000-0000-0000-000000000000")
+        {
+            console.log("goBack:create")
             codesetService.createBook(this.state.book, b => this.props.history.goBack());
+        }
         else
+        {
+            console.log("goBack:save")
             codesetService.saveBook(this.state.book, b => this.props.history.goBack());
+        }
     }
 
     render() {
         return <div><h2>BookDetail ({this.props.match.params.id})</h2>
         <table className="table">
+        <tbody>
             <tr>
                 <td>Type</td><td><input id="Type" onChange={ev => this.valueChanged(ev)} value={this.state.book.Type}/></td>
             </tr>
@@ -43,6 +50,7 @@ export class CodeSetDetail extends React.Component {
             <tr>
                 <td></td><td><input onClick={() => this.goBack()} type="button" value="Back" /></td>
             </tr>
+        </tbody>
         </table>
         </div>
     }

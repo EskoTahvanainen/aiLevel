@@ -64,7 +64,7 @@ export class CodeSetList extends React.Component {
                         <th><input id="AbbrevisionFilter" onChange={ev => this.valueChanged(ev)} value={af} placeholder="Abbrevision" /></th>
                         <th>Code</th>
                         <th>Meaning</th>
-                        <th><input onClick={() => this.props.history.push('/book/0')} type="button" value={'lisää'} /></th>
+                        <th><input onClick={() => this.props.history.push('/book/00000000-0000-0000-0000-000000000000')} type="button" value={'lisää'} /></th>
                     </tr>
                 </thead>
                 <tbody>

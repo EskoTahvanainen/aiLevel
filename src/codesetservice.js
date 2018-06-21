@@ -253,13 +253,13 @@ export const codesetService = {
           .catch((error) => {
             console.log(error) 
           });
-        console.log('css:saveBook ' + book.Id); 
+        //console.log('css:saveBook ' + book.Id); 
         cb();
     },
 
     // delete
     deleteBook(Id, cb) {
-        console.log('css:deleteBook ' + Id); 
+        console.log('css:deleteBook ' + Id);  
         //var index = codesets.findIndex(b => b.Id == Id);
         //if (index >= 0) codesets.splice(index, 1);
         //cb();
@@ -287,13 +287,14 @@ export const codesetService = {
         const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/create`
         axios.put(url, book)
           .then((response) => {
-            console.log(response)
+            console.log("createBook"+response.data)
+            cb(response.data)
           })
           .catch((error) => {
             console.log(error) 
+            cb(book)
           });
-        console.log('css:createBook ' + book.Id); 
-        cb(book);
+        //console.log('css:createBook ' + book.Id); 
     }
     /*
     getAll(cb) {
