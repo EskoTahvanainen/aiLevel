@@ -207,6 +207,7 @@ export const codesetService = {
         //cb(codesets);
 
         const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/getCodeSets/DIFSOL`
+        //const url = `https://enersoftdemoapijune.azurewebsites.net/api/codeset/getCodeSets/DIFSOL`
 
         axios.get(url)
           .then((response) => {
@@ -225,7 +226,8 @@ export const codesetService = {
         //else cb(book);
 
         const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/get/${Id}`
-
+        //const url = `https://enersoftdemoapijune.azurewebsites.net/api/codeset/get/${Id}`
+        
         axios.get(url)
           .then((response) => {
             cb(response.data)
@@ -246,6 +248,7 @@ export const codesetService = {
         //cb();
 
         const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/update`
+        //const url = `https://enersoftdemoapijune.azurewebsites.net/api/codeset/update`
         axios.post(url, book)
           .then((response) => {
             console.log(response)
@@ -265,6 +268,7 @@ export const codesetService = {
         //cb();
 
         const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/delete/${Id}`
+        //const url = `https://enersoftdemoapijune.azurewebsites.net/api/codeset/delete/${Id}`
 
         axios.delete(url)
           .then((response) => {
@@ -285,6 +289,7 @@ export const codesetService = {
         //cb(book);
 
         const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/create`
+        //const url = `https://enersoftdemoapijune.azurewebsites.net/api/codeset/create`
         axios.put(url, book)
           .then((response) => {
             console.log("createBook"+response.data)

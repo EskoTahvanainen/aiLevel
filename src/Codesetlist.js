@@ -29,6 +29,7 @@ export class CodeSetList extends React.Component {
     componentDidMount() {
         console.log("CodeSetList.componentDidMount")
         codesetService.getAll(codesets => this.setState({ codesets }))
+        this.forceUpdate()
     }
 
     valueChanged(ev) {
