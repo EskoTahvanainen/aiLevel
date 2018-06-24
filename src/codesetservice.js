@@ -198,6 +198,8 @@ export const bookServiceHttp = new BookServiceHttp();
 */
 
 
+const appUrl = "http://localhost:80/EnersoftDemo.Api/api/codeset";
+
 // tämä toinen on kaikkineen tässä filessä ja arvot tuossa ylhäällä
 //
 export const codesetService = {
@@ -206,7 +208,8 @@ export const codesetService = {
         console.log('css:getAll');         
         //cb(codesets);
 
-        const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/getCodeSets/DIFSOL`
+        const url = `${appUrl}/getCodeSets/DIFSOL`
+        //const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/getCodeSets/DIFSOL`
         //const url = `https://enersoftdemoapijune.azurewebsites.net/api/codeset/getCodeSets/DIFSOL`
 
         axios.get(url)
@@ -225,7 +228,8 @@ export const codesetService = {
         //if (!book) cb({ Id: '', Type: 'Ei löydy', Code: '0', Abbrevision: '', Meaning: '' });
         //else cb(book);
 
-        const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/get/${Id}`
+        const url = `${appUrl}/get/${Id}`
+        //const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/get/${Id}`
         //const url = `https://enersoftdemoapijune.azurewebsites.net/api/codeset/get/${Id}`
         
         axios.get(url)
@@ -247,7 +251,8 @@ export const codesetService = {
         //codesets[index] = book;
         //cb();
 
-        const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/update`
+        const url = `${appUrl}/update`
+        //const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/update`
         //const url = `https://enersoftdemoapijune.azurewebsites.net/api/codeset/update`
         axios.post(url, book)
           .then((response) => {
@@ -267,7 +272,8 @@ export const codesetService = {
         //if (index >= 0) codesets.splice(index, 1);
         //cb();
 
-        const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/delete/${Id}`
+        const url = `${appUrl}/delete/${Id}`
+        //const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/delete/${Id}`
         //const url = `https://enersoftdemoapijune.azurewebsites.net/api/codeset/delete/${Id}`
 
         axios.delete(url)
@@ -288,7 +294,8 @@ export const codesetService = {
         //console.log('css:createBook ' + book.Id); 
         //cb(book);
 
-        const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/create`
+        const url = `${appUrl}/create`
+        //const url = `http://localhost:80/EnersoftDemo.Api/api/codeset/create`
         //const url = `https://enersoftdemoapijune.azurewebsites.net/api/codeset/create`
         axios.put(url, book)
           .then((response) => {
