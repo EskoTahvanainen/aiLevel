@@ -18,6 +18,12 @@ export class CodeSetDetail extends React.Component {
         this.forceUpdate();
     }
 
+    //abbValueChanged(ev) {
+    //    this.setState({
+    //        [this.state.book: {Abbrevision}: ev.target.value
+    //    });
+    //}
+
     goBack() {
         if (this.props.match.params.id === "00000000-0000-0000-0000-000000000000")
         {
