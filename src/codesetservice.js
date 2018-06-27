@@ -246,7 +246,7 @@ export const codesetService = {
     // 6.6.18 saas nähdä toimiiko tämä ?
     // put
     saveBook(book, cb) {
-        //console.log('css:saveBook ' + book.Id);
+        console.log('css:saveBook ' + book.Id);
         //var index = codesets.findIndex(b => b.Id == book.Id);
         //codesets[index] = book;
         //cb();
@@ -257,12 +257,14 @@ export const codesetService = {
         axios.post(url, book)
           .then((response) => {
             console.log(response)
+            cb()
           })
           .catch((error) => {
             console.log(error) 
+            cb()
           });
         //console.log('css:saveBook ' + book.Id); 
-        cb();
+        //cb();
     },
 
     // delete

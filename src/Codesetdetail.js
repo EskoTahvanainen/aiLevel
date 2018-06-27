@@ -13,16 +13,50 @@ export class CodeSetDetail extends React.Component {
         codesetService.getBook(this.props.match.params.id, book => this.setState({ book }))
     }
 
-    valueChanged(ev) {
-        this.state.book[ev.target.id] = ev.target.value;
-        this.forceUpdate();
+    //valueChanged(ev) {
+    //    this.state.book[ev.target.id] = ev.target.value;
+    //    this.forceUpdate();
+    //}
+
+    typValueChanged(e) {
+        const newBook = Object.assign({}, 
+            this.state.book, 
+            { Type: e.target.value }
+        );
+        this.setState({
+            book: newBook
+        })
     }
 
-    //abbValueChanged(ev) {
-    //    this.setState({
-    //        [this.state.book: {Abbrevision}: ev.target.value
-    //    });
-    //}
+    abbValueChanged(e) {
+        const newBook = Object.assign({}, 
+            this.state.book, 
+            { Abbrevision: e.target.value }
+        );
+        this.setState({
+            book: newBook
+        })
+    }
+
+    codValueChanged(e) {
+        const newBook = Object.assign({}, 
+            this.state.book, 
+            { Code: e.target.value }
+        );
+        this.setState({
+            book: newBook
+        })
+    }
+
+    meaValueChanged(e) {
+        const newBook = Object.assign({}, 
+            this.state.book, 
+            { Meaning: e.target.value }
+        );
+        this.setState({
+            book: newBook
+        })
+    }
 
     goBack() {
         if (this.props.match.params.id === "00000000-0000-0000-0000-000000000000")
@@ -36,25 +70,28 @@ export class CodeSetDetail extends React.Component {
             codesetService.saveBook(this.state.book, b => this.props.history.goBack());
         }
     }
+    paluu() {
+        this.props.history.goBack()
+    }
 
     render() {
         return <div><h2>BookDetail ({this.props.match.params.id})</h2>
         <table className="table">
         <tbody>
             <tr>
-                <td>Type</td><td><input id="Type" onChange={ev => this.valueChanged(ev)} value={this.state.book.Type}/></td>
+                <td>Type</td><td><input id="Type" onChange={ev => this.typValueChanged(ev)} value={this.state.book.Type}/></td>
             </tr>
             <tr>
-                <td>Abbrevision</td><td><input id="Abbrevision" onChange={ev => this.valueChanged(ev)} value={this.state.book.Abbrevision} /></td>
+                <td>Abbrevision</td><td><input id="Abbrevision" onChange={ev => this.abbValueChanged(ev)} value={this.state.book.Abbrevision} /></td>
             </tr>
             <tr>
-                <td>Code</td><td><input id="Code" onChange={ev => this.valueChanged(ev)} value={this.state.book.Code} /></td>
+                <td>Code</td><td><input id="Code" onChange={ev => this.codValueChanged(ev)} value={this.state.book.Code} /></td>
             </tr>
             <tr>
-                <td>Meaning</td><td><input id="Meaning" onChange={ev => this.valueChanged(ev)} value={this.state.book.Meaning} /></td>
+                <td>Meaning</td><td><input id="Meaning" onChange={ev => this.meaValueChanged(ev)} value={this.state.book.Meaning} /></td>
             </tr>
             <tr>
-                <td></td><td><input onClick={() => this.goBack()} type="button" value="Back" /></td>
+                <td><input onClick={() => this.goBack()} type="button" value="Save" /></td><td><input onClick={() => this.paluu()} type="button" value="Paluu" /></td>
             </tr>
         </tbody>
         </table>
