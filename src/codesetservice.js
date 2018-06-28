@@ -198,7 +198,8 @@ export const bookServiceHttp = new BookServiceHttp();
 */
 
 
-const appUrl = "http://localhost:80/EnersoftDemo.Api/api/codeset";
+const appUrl = "https://enersoftdemoapijune.azurewebsites.net/api/codeset";
+//const appUrl = "http://localhost:80/EnersoftDemo.Api/api/codeset";
 
 // tämä toinen on kaikkineen tässä filessä ja arvot tuossa ylhäällä
 //
