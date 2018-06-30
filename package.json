@@ -17,5 +17,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://ailevel.azurewebsites.net/"
+  "homepage": "https://ailevel.azurewebsites.net/index.html"
 }
