@@ -8,7 +8,7 @@ import { codesetService } from './codesetservice';
 
 
 const CodeSetRow = ({ book,deleteBook,selectBook }) => <tr>
-    <td><Link to={`/book/${book.Id}`}>{book.Id}</Link></td>
+    <td><Link to={`/book/${book.Id}`}>{book.Code}</Link></td>
     <td onClick={() => selectBook(book)} style={{cursor:'pointer'}}>{book.Type}</td>
     <td>{book.Abbrevision}</td>
     <td style={{ color: 'green' }} className={'ratherBig'}>{book.Code}</td>
@@ -16,7 +16,8 @@ const CodeSetRow = ({ book,deleteBook,selectBook }) => <tr>
     <td>
         <input onClick={() => deleteBook(book)} type="button" value="Del" />
         <button style={{ color: 'red' }} onClick={() => deleteBook(book)}>
-            <Glyphicon glyph="remove" /></button>
+            <Glyphicon glyph="remove" />
+        </button>
     </td>
 </tr>
 
@@ -65,7 +66,12 @@ export class CodeSetList extends React.Component {
                         <th><input id="AbbrevisionFilter" onChange={ev => this.valueChanged(ev)} value={af} placeholder="Abbrevision" /></th>
                         <th>Code</th>
                         <th>Meaning</th>
-                        <th><input onClick={() => this.props.history.push('/book/00000000-0000-0000-0000-000000000000')} type="button" value={'lisää'} /></th>
+                        <th>
+                            <input onClick={() => this.props.history.push('/book/00000000-0000-0000-0000-000000000000')} type="button" value={'Add'} />
+                            <button style={{ color: 'green' }} onClick={()=> this.props.history.push('/book/00000000-0000-0000-0000-000000000000')}>
+                                <Glyphicon glyph="plus" />
+                            </button>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>

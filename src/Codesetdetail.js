@@ -10,7 +10,8 @@ export class CodeSetDetail extends React.Component {
     }
 
     componentDidMount() {
-        codesetService.getBook(this.props.match.params.id, book => this.setState({ book }))
+        if (this.props.match.params.id != "00000000-0000-0000-0000-000000000000")
+            codesetService.getBook(this.props.match.params.id, book => this.setState({ book }))
     }
 
     //valueChanged(ev) {
@@ -75,7 +76,7 @@ export class CodeSetDetail extends React.Component {
     }
 
     render() {
-        return <div><h2>BookDetail ({this.props.match.params.id})</h2>
+        return <div><h2>BookDetail ({this.props.match.params.id === "00000000-0000-0000-0000-000000000000" ? "0" : this.props.match.params.id})</h2>
         <table className="table">
         <tbody>
             <tr>

@@ -282,11 +282,13 @@ export const codesetService = {
         axios.delete(url)
           .then((response) => {
             console.log(response)
+            cb()
           })
           .catch((error) => {
             console.log(error) 
+            cb()
           });
-        cb();
+        //cb();
     },
 
     // ei toimi vielä!!
